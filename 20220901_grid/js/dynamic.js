@@ -1,4 +1,4 @@
-const setCalendar = () =>{
+const setCalendar = (year, month) =>{
     //오늘 `년, 오늘 월, 1 날짜 객체 구하기
     let firstDate = new Date(year, month-1, 1);
     //그 객체 요일 구하기
@@ -21,13 +21,14 @@ const setCalendar = () =>{
 
     //1~lastDate까지 반복하자
     const dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0]
+    dateGridContainerDiv.innerHTML = ''; //초기화
     for(let i = 1; i <= lastDate; i++){
     
         //<div class = "grid-item">$</div> -> <div class = "date-grid-container">
         //새로운 element 생성
         let newElem = document.createElement("div");
         //그 element class = "grid-item"
-        newElem.classList.add("Grid-item");
+        newElem.classList.add("grid-item");
         //그 element 텍스트 = i
         newElem.innerHTML = i;
         //.date-grid-container에 붙이기
@@ -39,6 +40,34 @@ const setCalendar = () =>{
     let firstDateDiv = dateGridContainerDiv.getElementsByTagName("grid-item")[0];
     firstDateDiv.style.gridColumnStart = lastDay + 1;
 }
+
+//prevMonth 함수
+const prevMonth = () => {
+    //이전 월 구하기
+    month--;
+    if(month<=0){
+        year--;
+        month=12;
+    }
+    //setCalendar(년, 구한 월);
+    setCalendar(year, month);
+}
+//nextMonth 함수
+const nextMonth = () => {
+    //다음 월 구하기
+    month++;
+    if(month>12){
+        year++;
+        month=1;
+    }
+    //setCalendar(년, 구한 월); 
+    setCalendar(year, month);
+}
+//prev 버튼 누르면 prevMonth 함수 실행
+prev_btn.onclick = prevMonth;
+//next 버튼 누르면 nextMonth 함수 실행
+next_btn.onclick = nextMonth;
+
 //오늘 구하기
 let today = new Date();
 //오늘 년 구하기
@@ -46,6 +75,5 @@ let year = today.getFullYear();
 //오늘 월 구하기
 let month = today.getMonth();
 month++;
-
 
 setCalendar(year, month)

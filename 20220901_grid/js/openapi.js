@@ -137,7 +137,7 @@ const handler = (event) => {
     let date = event.target.innerHTML;
     // console.log(date);
     //handler에서 year, month, date, 식사 로 url 만들어서 AJAX로 급식 정보 가져오자
-    const KEY = "d1dc39d63a314f2387d2dbd1c732b392";
+    const KEY = "948a576a81874e00bc91e056962916a8";
     const ATPT_OFCDC_SC_CODE = "B10";   //서울특별시교육청
     const SD_SCHUL_CODE = "7010569";    //미림여자정보과학고등학교
     let MLSV_YMD = `${year}${month.toString().padStart(2, "0")}${date.padStart(2, "0")}`;  //YYYYMMDD

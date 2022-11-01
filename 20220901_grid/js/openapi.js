@@ -231,8 +231,8 @@ const urlToJSON = (url) => {
     
 }
 
-for (let gridItem of gridItems) {
-    gridItem.onmouseover = handler;
-    // gridItem.addEventListener("mouseover", handler);
-}
+// for (let gridItem of gridItems) {
+//     gridItem.onmouseover = handler;
+//     // gridItem.addEventListener("mouseover", handler);
+// }
 //다 가져왔으면, 조식, 중식, 석식 표시하자

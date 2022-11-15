@@ -3,9 +3,10 @@
 }
 .grid-container{
     display:grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    /* grid-template-columns: 1fr 3fr 1fr; */
     grid-template-areas: 
-    "sidebar main nav";
+    ".     header     header"
+    "nav        main       sidebar";
 }
 .nav{
     grid-area:nav;
@@ -13,6 +14,12 @@
 main{
     grid-area:main;
 }
+header{
+    grid-area:header;
+}
 .sidebar{
     grid-area:sidebar;
+}
+footer{
+    display: none;
 }
